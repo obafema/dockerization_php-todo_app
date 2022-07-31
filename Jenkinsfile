@@ -20,7 +20,7 @@ pipeline {
         
         stage('Checkout SCM') {
           steps {
-            git branch: 'feature', url: 'https://github.com/obafema/Todo-app.git', credentialsId: 'github-login'
+            git branch: 'feature', url: 'https://github.com/obafema/dockerization_php-todo_app.git', credentialsId: 'github-login'
           }
        }
 
@@ -35,7 +35,7 @@ pipeline {
    
         stage('Tag the image')
           steps {
-              sh 'docker image tag php-todo:0.0.1 obafema01/php-todo:feature-0.0.1'
+              sh 'docker image tag php-todo:0.0.1 obafema/php-todo:feature-0.0.1'
           }
 
     // Uploading Docker images into AWS ECR
