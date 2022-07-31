@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  homestead_frontend:
+    build: .
+    ports:
+      - "8000:80"
+    volumes:
+      - homestead_frontend:/var/www/html
+    links:
+      - db
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: userconnect
+      MYSQL_PASSWORD: zigali
+      MYSQL_RANDOM_ROOT_PASSWORD: osla
+    volumes:
+      - db:/var/lib/mysql
+
+networks:
+  default:
+    external:
+      name: tooling_app_network
+
+volumes:
+  homestead_frontend:
+  db:
