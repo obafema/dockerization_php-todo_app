@@ -20,7 +20,7 @@ pipeline {
         
         stage('Checkout SCM') {
           steps {
-            git branch: 'feature', url: 'https://github.com/obafema/dockerization_php-todo_app.git', credentialsId: 'github-login'
+            git branch: 'feature-0.0.1', url: 'https://github.com/obafema/dockerization_php-todo_app.git', credentialsId: 'github-login'
           }
        }
 
